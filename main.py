@@ -10,4 +10,13 @@ import nltk #nltk es un libreria para procesar texto y analizar palabras
 from nltk.tokenize import word_tokenize # Se usa para dividir un texto en palabras individuales
 from nltk. corpus import wordnet # Nos ayuda a encontrar sinonomos de palabras
 
+# Descargamos la herramientas necesatias de nltk para el analisis de palabras
+
+nltk.download('punkt') # Herramienta para dividir texto en palabras
+nltk.download('wordnet') # Herramienta para encontrar sinonomos de palabras en ingles
+
+# Indicamos la ruta donde nltk buscará los datos descartrgados en nuestro computador 
+nltk.data.path.append('C:\Users\andre\AppData\Roaming\nltk_data')
+
+# Funcion para cargar las peliculas desde un arvhivo CSV 
 
