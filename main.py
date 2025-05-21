@@ -22,7 +22,7 @@ nltk.data.path.append(r'C:\Users\andre\AppData\Roaming\nltk_data')
 
 def load_movies():
     # leemos el archivo que contiene informacion de peliculas y seleccionamos las columnas mas importantes
-    df = pd.read_csv (r"Dataset/netfli_titles.csv")[['show_id', 'title', 'realese_year', 'listed_in', 'rating', 'description']]
+    df = pd.read_csv (r"Dataset/netflix_titles.csv")[['show_id', 'title', 'release_year', 'listed_in', 'rating', 'description']]
     
     # Renombramos las columnas para que sean mas faciles de entender
     
@@ -42,7 +42,8 @@ def get_synonyms(word):
 
 # Creamos la aplicación FastAPI, que será el motor de nuesta API
 # Esto inicializa la API con un nombre y una versión
-app = FastAPI(title="Mi aplicacion de peliculas", versión= "1.0.0")
+
+app = FastAPI(title="Mi aplicacion de peliculas", version= '1.0.0')
 
 # Ruta de inicio: Cuando alguien entra a la API sin especificar nada, verá un mensaje de bienvenida.
 
@@ -59,7 +60,7 @@ def home():
 
 @app.get('movies', tags=['Movies'])
 def get_movies():
-    # Si hay películas, las enviamos, si no, mostramo un error
+    # Si hay películas, las enviamos, si no, mostramos un error
     return movies_list or HTTPException(status_code=500, detail="No hay datos de películas disponibles")
 
 # Ruta para obtener una películas especifica segun su ID
