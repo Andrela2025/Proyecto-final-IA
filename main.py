@@ -88,9 +88,7 @@ def chatbot(query:str):
     "peliculas" : results
     })
 # Ruta para buscar películas por categoría específica
-"""
-@app.get ('/movies/, tag=['Movies']')
+@app.get ('/movies/by_category/', tags=['Movies'])
 def get_movies_by_category(category: str):
     #filtramos la lista de películas buscando coincidencias en la categoría ingresada
-    return [m for m in movies_list if category.lower()in m['category'].lower()]
-"""    
+    return [m for m in movies_list if category.lower() in m['Category'].lower()]
